@@ -1,0 +1,10 @@
+# Simplest possible script: connect, let the screen settle, take a screenshot.
+name = "Screenshot"
+
+[[step]]
+action = "wait_for_idle"
+quiet = 1.5
+
+[[step]]
+action = "screenshot"
+name = "desktop"

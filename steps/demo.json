@@ -1,0 +1,25 @@
+{
+  "name": "Clicks and typing demo",
+  "steps": [
+    {"action": "screenshot", "name": "start", "note": "where we begin"},
+    {"action": "right_click", "x": 1700, "y": 200, "note": "desktop context menu (empty desktop, top right)"},
+    {"action": "expect_change", "note": "the context menu should open"},
+    {"action": "screenshot", "name": "context-menu"},
+    {"action": "press_keys", "keys": ["esc"], "note": "close the menu"},
+    {"action": "click", "x": 830, "y": 1056, "note": "open Windows search (taskbar search box)"},
+    {"action": "expect_change", "note": "the search panel should open"},
+    {"action": "type_text", "text": "notepad"},
+    {"action": "wait_for_idle", "quiet": 1.5, "note": "let the results load"},
+    {"action": "screenshot", "name": "search-results"},
+    {"action": "press_keys", "keys": ["esc"], "note": "close search without launching anything"},
+    {"action": "press_keys", "keys": ["win", "r"], "note": "open the Run dialog"},
+    {"action": "expect_change", "note": "the Run dialog should appear"},
+    {"action": "type_text", "text": "cmd\n", "note": "open a console"},
+    {"action": "wait", "seconds": 2, "note": "let the console open (its blinking cursor never lets the screen go still)"},
+    {"action": "type_text", "text": "echo Hello from RDP Agent\n"},
+    {"action": "expect_change", "note": "the echo should appear in the console"},
+    {"action": "type_text", "text": "ver\n"},
+    {"action": "screenshot", "name": "console-typed"},
+    {"action": "type_text", "text": "exit\n", "note": "close the console, leaving the desktop as we found it"}
+  ]
+}

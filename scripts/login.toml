@@ -1,0 +1,30 @@
+# For a PC that shows the Windows login screen (no Network Level Authentication):
+# click the password box and type RDP_PASSWORD from .env. Adjust x/y to your screen.
+name = "Log in at the Windows login screen"
+
+[[step]]
+action = "screenshot"
+name = "login-screen"
+
+[[step]]
+action = "press_keys"
+keys = ["space"]
+note = "wake the lock screen"
+
+[[step]]
+action = "wait_for_idle"
+
+[[step]]
+action = "type_secret"
+name = "password"
+press_enter = true
+
+[[step]]
+action = "wait_for_idle"
+quiet = 3
+timeout = 60
+note = "wait for the desktop to load"
+
+[[step]]
+action = "screenshot"
+name = "after-login"

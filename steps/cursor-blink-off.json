@@ -1,0 +1,10 @@
+{
+  "name": "Turn off text-cursor blink (until sign-out)",
+  "steps": [
+    {"action": "press_keys", "keys": ["win", "r"], "note": "open the Run dialog"},
+    {"action": "expect_change", "note": "the Run dialog should appear"},
+    {"action": "type_text", "text": "cmd\n", "note": "open a console"},
+    {"action": "wait", "seconds": 2, "note": "let the console open (its blinking cursor never lets the screen go still)"},
+    {"action": "type_text", "text": "powershell -NoProfile -Command \"(Add-Type -Name Caret -Namespace RdpAgent -PassThru -MemberDefinition '[DllImport(\\\"user32.dll\\\")] public static extern bool SetCaretBlinkTime(uint ms);')::SetCaretBlinkTime(4294967295)\" & exit\n", "note": "set the blink rate, then close the console"}
+  ]
+}

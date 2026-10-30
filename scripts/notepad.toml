@@ -1,0 +1,54 @@
+# Open Notepad, type a line, screenshot it, then close Notepad without saving.
+name = "Notepad smoke test"
+
+[[step]]
+action = "screenshot"
+name = "start"
+note = "where we begin"
+
+[[step]]
+action = "press_keys"
+keys = ["win", "r"]
+note = "open the Run dialog"
+
+[[step]]
+action = "expect_change"
+note = "the Run dialog should appear"
+
+[[step]]
+action = "type_text"
+text = "notepad\n"
+
+[[step]]
+action = "wait_for_idle"
+quiet = 1.5
+note = "give Notepad time to open"
+
+[[step]]
+action = "type_text"
+text = "Hello from RDP Agent.\nThis line was typed over RDP.\n"
+
+[[step]]
+action = "screenshot"
+name = "notepad-typed"
+
+[[step]]
+action = "press_keys"
+keys = ["alt", "f4"]
+note = "close Notepad"
+
+[[step]]
+action = "wait_for_idle"
+
+[[step]]
+action = "press_keys"
+keys = ["tab"]
+note = "Notepad asks to save: move focus to Don't Save"
+
+[[step]]
+action = "press_keys"
+keys = ["enter"]
+
+[[step]]
+action = "screenshot"
+name = "end"

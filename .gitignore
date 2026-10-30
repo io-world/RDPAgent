@@ -1,0 +1,26 @@
+# Secrets: connection details and passwords (copy .env.example to .env)
+.env
+.env.*
+!.env.example
+
+# Run output: screenshots of the remote desktop, reports, history
+runs/
+
+# Python
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+.venv/
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Editors / OS
+.DS_Store
+.idea/
+.vscode/
+*.log
